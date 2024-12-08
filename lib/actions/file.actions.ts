@@ -2,7 +2,6 @@
 
 import {
   DeleteFileProps,
-  FileType,
   GetFilesProps,
   RenameFileProps,
   UpdateFileUsersProps,

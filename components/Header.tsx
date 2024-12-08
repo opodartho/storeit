@@ -10,17 +10,16 @@ interface Props {
 }
 
 const Header = ({ $id: ownerId, accountId }: Props) => {
+  const handleSignOut = async () => {
+    "use server";
+    await signOutUser();
+  };
   return (
     <header className="header">
       <Search />
       <div className="header-wrapper">
         <FileUpload ownerId={ownerId} accountId={accountId} />
-        <form
-          action={async () => {
-            "use server";
-            await signOutUser();
-          }}
-        >
+        <form action={handleSignOut} method="post">
           <Button type="submit" className="sign-out-button">
             <Image
               src="/assets/icons/logout.svg"

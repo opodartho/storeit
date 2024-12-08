@@ -38,7 +38,7 @@ const Search = () => {
       setOpen(true);
       setResults(result);
     });
-  }, [debounceQuery]);
+  }, [debounceQuery, path, router, searchParams]);
 
   useEffect(() => {
     if (!searchQuery) {

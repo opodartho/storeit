@@ -1,11 +1,11 @@
-"use server";
-
 import React, { ReactNode } from "react";
 import Sidebar from "@/components/Sidebar";
 import MobileNavigation from "@/components/MobileNavigation";
 import Header from "@/components/Header";
 import { fetchCurrentUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
+
+export const dynamic = "force-dynamic";
 
 const Layout = async ({ children }: { children: ReactNode }) => {
   let currentUser = null;
