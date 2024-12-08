@@ -31,6 +31,10 @@ export const calculatePercentage = (sizeInBytes: number) => {
   return Number(percentage.toFixed(2));
 };
 
+export const calculateAngle = (sizeInBytes: number) => {
+  const percentage = calculatePercentage(sizeInBytes);
+  return (percentage / 100) * 360;
+};
 export const getFileType = (fileName: string) => {
   const extension = fileName.split(".").pop()?.toLowerCase();
 
@@ -184,41 +188,41 @@ export const constructDownloadUrl = (bucketFileId: string) => {
 };
 
 // DASHBOARD UTILS
-// export const getUsageSummary = (totalSpace: any) => {
-//   return [
-//     {
-//       title: "Documents",
-//       size: totalSpace.document.size,
-//       latestDate: totalSpace.document.latestDate,
-//       icon: "/assets/icons/file-document-light.svg",
-//       url: "/documents",
-//     },
-//     {
-//       title: "Images",
-//       size: totalSpace.image.size,
-//       latestDate: totalSpace.image.latestDate,
-//       icon: "/assets/icons/file-image-light.svg",
-//       url: "/images",
-//     },
-//     {
-//       title: "Media",
-//       size: totalSpace.video.size + totalSpace.audio.size,
-//       latestDate:
-//         totalSpace.video.latestDate > totalSpace.audio.latestDate
-//           ? totalSpace.video.latestDate
-//           : totalSpace.audio.latestDate,
-//       icon: "/assets/icons/file-video-light.svg",
-//       url: "/media",
-//     },
-//     {
-//       title: "Others",
-//       size: totalSpace.other.size,
-//       latestDate: totalSpace.other.latestDate,
-//       icon: "/assets/icons/file-other-light.svg",
-//       url: "/others",
-//     },
-//   ];
-// };
+export const getUsageSummary = (totalSpace: any) => {
+  return [
+    {
+      title: "Documents",
+      size: totalSpace.document.size,
+      latestDate: totalSpace.document.latestDate,
+      icon: "/assets/icons/file-document-light.svg",
+      url: "/documents",
+    },
+    {
+      title: "Images",
+      size: totalSpace.image.size,
+      latestDate: totalSpace.image.latestDate,
+      icon: "/assets/icons/file-image-light.svg",
+      url: "/images",
+    },
+    {
+      title: "Media",
+      size: totalSpace.video.size + totalSpace.audio.size,
+      latestDate:
+        totalSpace.video.latestDate > totalSpace.audio.latestDate
+          ? totalSpace.video.latestDate
+          : totalSpace.audio.latestDate,
+      icon: "/assets/icons/file-video-light.svg",
+      url: "/media",
+    },
+    {
+      title: "Others",
+      size: totalSpace.other.size,
+      latestDate: totalSpace.other.latestDate,
+      icon: "/assets/icons/file-other-light.svg",
+      url: "/others",
+    },
+  ];
+};
 
 export const getFileTypesParams = (type: string) => {
   switch (type) {

@@ -14,12 +14,13 @@ const Header = ({ $id: ownerId, accountId }: Props) => {
     "use server";
     await signOutUser();
   };
+
   return (
     <header className="header">
       <Search />
       <div className="header-wrapper">
         <FileUpload ownerId={ownerId} accountId={accountId} />
-        <form action={handleSignOut} method="post">
+        <form action={handleSignOut}>
           <Button type="submit" className="sign-out-button">
             <Image
               src="/assets/icons/logout.svg"
